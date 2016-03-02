@@ -3,6 +3,7 @@
 var jquery = require('jquery');
 var camelCase = require('lodash/string/camelCase');
 var isElement = require('lodash/lang/isElement');
+var isFunction = require('lodash/lang/isFunction');
 var isNumber = require('lodash/lang/isNumber');
 var isPlainObject = require('lodash/lang/isPlainObject');
 var isString = require('lodash/lang/isString');
@@ -162,24 +163,35 @@ function __appendByChar (el, words, index, opts) {
     return finalText;
 }
 
-function textWrap (text, options) {
-    if (!isString(text)) { return []; }
+function _textWrapDestroy (notReal) {
+    isFunction(this.options.element.$destroy) && this.options.element.$destroy();
 
-    const _opts = __options(options);
+    this.options.element = null;
+
+    if (!notReal) {
+        this.options.parent = null;
+    }
+}
+function _textWrapBuild (text) {
+    this.text = (text == undefined) ? this.text : text;
+    const _text = this.text;
+    const _opts = this.options;
+
+    if (!isString(_text)) { return []; }
+
     const maxWidth = _opts.maxWidth;
     const splitSymbol = _opts.splitSymbol;
-
     let el = _opts.element;
 
-    el.textContent = text;
+    el.textContent = _text;
     if (el.$width() <= maxWidth) {
-        el.$destroy();
-        return [text];
+        !this.isInstance && _textWrapDestroy.call(this);
+        return [_text];
     }
 
     let textRows = [];
 
-    let words = text.split(splitSymbol);
+    let words = _text.split(splitSymbol);
 
     el.textContent = '';
     let index = 0;
@@ -195,12 +207,46 @@ function textWrap (text, options) {
         }
     }
 
-    el.$width() < maxWidth && textRows.push(el.textContent);
+    el.textContent != '' && textRows.push(el.textContent);
 
-    el.$destroy();
+    !this.isInstance && _textWrapDestroy.call(this);
 
     return textRows;
 }
+
+function textWrap (text, options) {
+    const isInstance = (this || {}).__NAME === 'TextWrapPX';
+    var self = isInstance ? this : {};
+
+    self.isInstance = isInstance;
+    self.options = __options(options);
+    self.text = text;
+
+    return isInstance ? this : _textWrapBuild.call(self);
+}
+
+
+textWrap.prototype.__NAME = 'TextWrapPX';
+textWrap.prototype.setOptions = function (options) {
+    !isPlainObject(options) && (options = {});
+
+
+    if (isElement(options.element)) {
+        this.destroy(true);
+    } else {
+        if (isElement(options.parent)
+            || isString(options.class)
+            || isPlainObject(options.style)) {
+            this.destroy(true);
+        }
+    }
+
+    merge(this.options, __options(options));
+
+    return this;
+};
+textWrap.prototype.build = _textWrapBuild;
+textWrap.prototype.destroy = _textWrapDestroy;
 
 
 module.exports = textWrap;
