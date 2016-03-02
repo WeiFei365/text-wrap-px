@@ -1,0 +1,50 @@
+{
+  "name": "text-wrap-px",
+  "version": "0.0.1",
+  "description": "文本断行；不同于字符数的断行，可以根据 CSS 样式以像素级别的断行；",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node ./web-pack/cmd.js --job=watch",
+    "build": "node ./web-pack/cmd.js --job=build",
+    "product": "node ./web-pack/cmd.js --job=product"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeiFei365/text-wrap-px.git"
+  },
+  "keywords": [
+    "text-wrap",
+    "text-wrap-css",
+    "断行",
+    "html",
+    "断行"
+  ],
+  "author": "Wei Fei",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/WeiFei365/text-wrap-px/issues"
+  },
+  "homepage": "https://github.com/WeiFei365/text-wrap-px#readme",
+  "dependencies": {
+    "jquery": "2.1.4",
+    "lodash": "3.10.1"
+  },
+  "devDependencies": {
+    "aliasify": "^1.8.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "chalk": "^1.1.1",
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "minimist": "^1.2.0",
+    "node-notifier": "^4.4.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
