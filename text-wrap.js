@@ -10,14 +10,13 @@ var merge = require('lodash/object/merge');
 
 
 function string_isEN (text) {
-    return new RegExp('^[a-zA-Z0-9.,]+$').test(text.replace(/\s/g, ''));
+    return new RegExp('^[a-zA-Z0-9.,-]+$').test(text.replace(/\s/g, ''));
 }
 
 const STYLE = {
     'display': 'inline-block',
     'position': 'absolute',
-    'margin-top': '-99999px',
-    'font-size': '30px'
+    'margin-top': '-99999px'
 };
 function __getElement (opts) {
     const _parent = opts.parent;
