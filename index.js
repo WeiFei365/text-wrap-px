@@ -1,6 +1,6 @@
 
-var textWrap = require('./text-wrap.js');
+var TextWrapPX = require('./src/text-wrap-px.js');
 
-global && (global.textWrap = textWrap);
+global && (global.TextWrapPX = TextWrapPX);
 
-module.exports = textWrap;
+module.exports = TextWrapPX;
