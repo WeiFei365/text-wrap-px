@@ -65,16 +65,16 @@ function __checkWordByChar (el, anyStr, maxWidth) {
 
 /**
  * 按字符追加，直到达到最大宽度（像素级）：text 行级别
- * @param  {[type]} el    [description]
- * @param  {[type]} words [description]
- * @param  {[type]} index [description]
- * @param  {[type]} opts  [description]
- * @return {[type]}       [description]
+ * @param  {[type]} el          [description]
+ * @param  {[type]} words       [description]
+ * @param  {[type]} index       [description]
+ * @param  {[type]} maxWidth    [description]
+ * @param  {[type]} splitSymbol [description]
+ * @param  {[type]} suffix      [description]
+ * @return {[type]}             [description]
  */
-function __appendByChar (el, words, index, opts) {
+function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix) {
     let word = words[index];
-    let maxWidth = opts.maxWidth;
-    let splitSymbol = opts.splitSymbol;
     let isOnlyEN = string_isEN(word);
 
     el.textContent = words.slice(0, index).join(splitSymbol);
@@ -100,7 +100,7 @@ function __appendByChar (el, words, index, opts) {
     if (isOnlyEN) {
         // 直接截断该 word，并舍弃
         finalText = (index == 0) ?
-            __textBreak(el.textContent, opts.suffix)
+            __textBreak(el.textContent, suffix)
             : words.slice(0, index).join(splitSymbol);
 
         words.splice(0, index == 0 ? 1 : index);

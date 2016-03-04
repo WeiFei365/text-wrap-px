@@ -1,5 +1,6 @@
 'use strict'
 
+var isArray = require('lodash/lang/isArray');
 var isElement = require('lodash/lang/isElement');
 var isNumber = require('lodash/lang/isNumber');
 var isPlainObject = require('lodash/lang/isPlainObject');
@@ -19,9 +20,9 @@ const DEFAULT_STYLE = {
 function __options (options) {
     let _opts = options && isPlainObject(options) ? merge({}, options) : {};
 
-    // 一行最大宽度（像素）
-    if (!isNumber(_opts.maxWidth) || _opts.maxWidth < 10) {
-        _opts.maxWidth = 200;
+    // 一行最大宽度（像素），支持多行定义，不做脏检查
+    if (!isArray(_opts.maxWidth)) {
+        _opts.maxWidth = [isNumber(_opts.maxWidth) ? _opts.maxWidth : 200];
     }
     // text 中单词与单词间的分隔符
     if (!isString(_opts.splitSymbol)) {

@@ -8,6 +8,7 @@ var merge = require('lodash/object/merge');
 
 var __options = require('./options.js');
 var __appendByChar = require('./utils.js').__appendByChar;
+var array_scale = require('./array.js').array_scale;
 
 
 function _textWrapPXDestroy (notReal) {
@@ -28,9 +29,12 @@ function _textWrapPXBuild (text) {
 
     if (!isString(_text)) { return []; }
 
-    const maxWidth = _opts.maxWidth;
+    const maxWidthRows = _opts.maxWidth;
     const splitSymbol = _opts.splitSymbol;
+    const suffix = _opts.suffix;
     let el = _opts.element;
+    let rowNum = 0;
+    let maxWidth = array_scale(maxWidthRows, rowNum);
 
     el.textContent = _text;
     if (el.$width() <= maxWidth) {
@@ -48,8 +52,10 @@ function _textWrapPXBuild (text) {
     while (words.length > 0 && index < words.length) {
         el.textContent = el.textContent + (index == 0 ? '' : splitSymbol) + words[index];
         if (el.$width() >= maxWidth) {
-            textRows.push(__appendByChar(el, words, index, _opts));
+            textRows.push(__appendByChar(el, words, index, maxWidth, splitSymbol, suffix));
 
+            rowNum++;
+            maxWidth = array_scale(maxWidthRows, rowNum);
             index = 0;
             el.textContent = '';
         } else {
