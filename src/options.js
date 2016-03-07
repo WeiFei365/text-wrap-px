@@ -24,6 +24,10 @@ function __options (options) {
     if (!isArray(_opts.maxWidth)) {
         _opts.maxWidth = [isNumber(_opts.maxWidth) ? _opts.maxWidth : 200];
     }
+    // 支持的最多行数，超出会截断，并且在最后一行追加后缀
+    if (!isNumber(_opts.maxRow) || _opts.maxRow < 1) {
+        _opts.maxRow = 99999;
+    }
     // text 中单词与单词间的分隔符
     if (!isString(_opts.splitSymbol)) {
         _opts.splitSymbol = ' ';

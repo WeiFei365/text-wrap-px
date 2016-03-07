@@ -8,6 +8,7 @@ var merge = require('lodash/object/merge');
 
 var __options = require('./options.js');
 var __appendByChar = require('./utils.js').__appendByChar;
+var __textBreak = require('./utils.js').__textBreak;
 var array_scale = require('./array.js').array_scale;
 
 
@@ -67,6 +68,10 @@ function _textWrapPXBuild (text) {
 
     !this.isInstance && _textWrapPXDestroy.call(this);
 
+    if (textRows.length > _opts.maxRow) {
+        textRows.splice(_opts.maxRow, textRows.length - _opts.maxRow);
+        textRows[textRows.length - 1] = __textBreak(textRows[textRows.length - 1], suffix);
+    }
     return textRows;
 }
 
