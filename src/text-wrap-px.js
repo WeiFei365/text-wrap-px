@@ -31,6 +31,7 @@ function _textWrapPXBuild (text) {
     if (!isString(_text)) { return []; }
 
     const maxWidthRows = _opts.maxWidth;
+    const maxRow = _opts.maxRow;
     const splitSymbol = _opts.splitSymbol;
     const suffix = _opts.suffix;
     let el = _opts.element;
@@ -53,7 +54,7 @@ function _textWrapPXBuild (text) {
     while (words.length > 0 && index < words.length) {
         el.textContent = el.textContent + (index == 0 ? '' : splitSymbol) + words[index];
         if (el.$width() >= maxWidth) {
-            textRows.push(__appendByChar(el, words, index, maxWidth, splitSymbol, suffix));
+            textRows.push(__appendByChar(el, words, index, maxWidth, splitSymbol, suffix, (textRows.length + 1) >= maxRow));
 
             rowNum++;
             maxWidth = array_scale(maxWidthRows, rowNum);
@@ -62,16 +63,16 @@ function _textWrapPXBuild (text) {
         } else {
             index++;
         }
+        if (textRows.length >= maxRow) {
+            el.textContent = '';
+            break;
+        }
     }
 
     el.textContent != '' && textRows.push(el.textContent);
 
     !this.isInstance && _textWrapPXDestroy.call(this);
 
-    if (textRows.length > _opts.maxRow) {
-        textRows.splice(_opts.maxRow, textRows.length - _opts.maxRow);
-        textRows[textRows.length - 1] = __textBreak(textRows[textRows.length - 1], suffix);
-    }
     return textRows;
 }
 

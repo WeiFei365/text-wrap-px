@@ -71,9 +71,10 @@ function __checkWordByChar (el, anyStr, maxWidth) {
  * @param  {[type]} maxWidth    [description]
  * @param  {[type]} splitSymbol [description]
  * @param  {[type]} suffix      [description]
+ * @param  {[type]} isMaxRow    [description]
  * @return {[type]}             [description]
  */
-function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix) {
+function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix, isMaxRow) {
     let word = words[index];
     let isOnlyEN = string_isEN(word);
 
@@ -89,7 +90,7 @@ function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix) {
             // append 分隔符就已经超了，直接舍去下一个单词
             words.splice(0, index);
 
-            return el.textContent;
+            return isMaxRow ? __textBreak(el.textContent, suffix) : el.textContent;
         }
     }
     // for last word(this row)
@@ -99,7 +100,7 @@ function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix) {
 
     if (isOnlyEN) {
         // 直接截断该 word，并舍弃
-        finalText = (index == 0) ?
+        finalText = (index == 0 || isMaxRow) ?
             __textBreak(el.textContent, suffix)
             : words.slice(0, index).join(splitSymbol);
 
@@ -108,7 +109,7 @@ function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix) {
         // 截断中文
         words.splice(0 ,index);
         words[0] = words[0].substr(i);
-        finalText = el.textContent;
+        finalText = isMaxRow ? __textBreak(el.textContent, suffix) : el.textContent;
     }
 
     return finalText;
