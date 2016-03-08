@@ -77,6 +77,11 @@ function _textWrapPXBuild (text) {
 }
 
 
+/**
+ * 既可以作为方法使用，又可以作为类实例化使用，实例会有更加丰富的 API 工具方法；
+ * @param {String} text    需要格式化的文本
+ * @param {Object} options 一些个性化的配置项，请参考：https://github.com/WeiFei365/text-wrap-px#options
+ */
 function TextWrapPX (text, options) {
     const isInstance = (this || {}).__NAME === 'TextWrapPX';
     var self = isInstance ? this : {};
@@ -96,6 +101,10 @@ merge(TextWrapPX.prototype, {
 
     destroy: _textWrapPXDestroy,
 
+    /**
+     * 更新自定义配置；
+     * @param {Object} options 一些个性化的配置项，请参考：https://github.com/WeiFei365/text-wrap-px#options
+     */
     setOptions (options) {
         !isPlainObject(options) && (options = {});
 
