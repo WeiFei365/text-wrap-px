@@ -2,6 +2,7 @@
 
 var jquery = require('jquery');
 var camelCase = require('lodash/string/camelCase');
+var uniqueId = require('lodash/utility/uniqueId');
 
 var string_isEN = require('./string.js').string_isEN;
 
@@ -16,6 +17,7 @@ function __getElement (opts) {
     _parent.appendChild(element);
 
     _class && (element.className = _class);
+    element.id = uniqueId('text_wrap_px_');
     for (var key in _style) {
         _style.hasOwnProperty(key) && (element.style[camelCase(key)] = _style[key]);
     }

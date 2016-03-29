@@ -119,7 +119,8 @@ merge(TextWrapPX.prototype, {
             }
         }
 
-        merge(this.options, __options(options));
+        // 这里要先 merge this.options 再传递给 __options，是为了避免再次 createElement
+        merge(this.options, __options(merge(this.options, options)));
 
         return this;
     },
