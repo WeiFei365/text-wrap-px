@@ -4,7 +4,7 @@
 
 **TextWrapPX** 可以帮助你方便的确定一段文本应有的行数及处理截断等问题；**TextWrapPX** 使用原生的 DOM(span) 标签，支持标准 CSS 样式、className 的配置，实现与网页中完全一样的定义、显示。
 
-**快速导航：[CHANGELO]()、**
+**快速导航：[CHANGELO](CHANGELOG.MD)、**
 
 
 ## 安装 & 使用
