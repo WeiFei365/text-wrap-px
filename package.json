@@ -1,6 +1,6 @@
 {
   "name": "text-wrap-px",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "文本断行；不同于字符数的断行，可以根据 CSS 样式以像素级别的断行；",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/WeiFei365/text-wrap-px#readme",
   "dependencies": {
     "jquery": "2.1.4",
-    "lodash": "3.10.1"
+    "lodash": "3.9.0"
   },
   "devDependencies": {
     "aliasify": "^1.8.1",

@@ -1,11 +1,18 @@
 'use strict'
 
-var isArray = require('lodash/lang/isArray');
-var isElement = require('lodash/lang/isElement');
-var isNumber = require('lodash/lang/isNumber');
-var isPlainObject = require('lodash/lang/isPlainObject');
-var isString = require('lodash/lang/isString');
-var merge = require('lodash/object/merge');
+var lodash = require('lodash');
+var isArray = lodash.isArray;
+var isElement = lodash.isElement;
+var isNumber = lodash.isNumber;
+var isPlainObject = lodash.isPlainObject;
+var isString = lodash.isString;
+var merge = lodash.merge;
+// var isArray = require('lodash/lang/isArray');
+// var isElement = require('lodash/lang/isElement');
+// var isNumber = require('lodash/lang/isNumber');
+// var isPlainObject = require('lodash/lang/isPlainObject');
+// var isString = require('lodash/lang/isString');
+// var merge = require('lodash/object/merge');
 
 var __getElement = require('./utils.js').__getElement;
 

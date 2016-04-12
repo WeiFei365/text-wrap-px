@@ -1,8 +1,11 @@
 'use strict'
 
 var jquery = require('jquery');
-var camelCase = require('lodash/string/camelCase');
-var uniqueId = require('lodash/utility/uniqueId');
+var lodash = require('lodash');
+var camelCase = lodash.camelCase;
+var uniqueId = lodash.uniqueId;
+// var camelCase = require('lodash/string/camelCase');
+// var uniqueId = require('lodash/utility/uniqueId');
 
 var string_isEN = require('./string.js').string_isEN;
 
