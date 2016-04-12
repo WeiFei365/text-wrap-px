@@ -31,18 +31,18 @@ function _textWrapPXBuild (text) {
     // 赋新值
     (text != undefined) && (this.text = text);
 
-    const _text = this.text;
-    const _opts = this.options;
+    var _text = this.text;
+    var _opts = this.options;
 
     if (!isString(_text)) { return []; }
 
-    const maxWidthRows = _opts.maxWidth;
-    const maxRow = _opts.maxRow;
-    const splitSymbol = _opts.splitSymbol;
-    const suffix = _opts.suffix;
-    let el = _opts.element;
-    let rowNum = 0;
-    let maxWidth = array_scale(maxWidthRows, rowNum);
+    var maxWidthRows = _opts.maxWidth;
+    var maxRow = _opts.maxRow;
+    var splitSymbol = _opts.splitSymbol;
+    var suffix = _opts.suffix;
+    var el = _opts.element;
+    var rowNum = 0;
+    var maxWidth = array_scale(maxWidthRows, rowNum);
 
     el.textContent = _text;
     if (el.$width() <= maxWidth) {
@@ -51,12 +51,12 @@ function _textWrapPXBuild (text) {
         return [_text];
     }
 
-    let textRows = [];
+    var textRows = [];
 
-    let words = _text.split(splitSymbol);
+    var words = _text.split(splitSymbol);
 
     el.textContent = '';
-    let index = 0;
+    var index = 0;
     while (words.length > 0 && index < words.length) {
         el.textContent = el.textContent + (index == 0 ? '' : splitSymbol) + words[index];
         if (el.$width() >= maxWidth) {
@@ -89,7 +89,7 @@ function _textWrapPXBuild (text) {
  * @param {Object} options 一些个性化的配置项，请参考：https://github.com/WeiFei365/text-wrap-px#options
  */
 function TextWrapPX (text, options) {
-    const isInstance = (this || {}).__NAME === 'TextWrapPX';
+    var isInstance = (this || {}).__NAME === 'TextWrapPX';
     var self = isInstance ? this : {};
 
     self.isInstance = isInstance;
@@ -111,7 +111,7 @@ merge(TextWrapPX.prototype, {
      * 更新自定义配置；
      * @param {Object} options 一些个性化的配置项，请参考：https://github.com/WeiFei365/text-wrap-px#options
      */
-    setOptions (options) {
+    setOptions: function(options) {
         !isPlainObject(options) && (options = {});
 
 
@@ -130,16 +130,16 @@ merge(TextWrapPX.prototype, {
 
         return this;
     },
-    $width (text) {
-        const _text = text || this.text;
-        let el = this.options.element;
+    $width: function(text) {
+        var _text = text || this.text;
+        var el = this.options.element;
         el.textContent = _text;
 
         return el.$width();
     },
-    $height (text) {
-        const _text = text || this.text;
-        let el = this.options.element;
+    $height: function(text) {
+        var _text = text || this.text;
+        var el = this.options.element;
         el.textContent = _text;
 
         return el.$height();

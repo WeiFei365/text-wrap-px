@@ -11,12 +11,12 @@ var string_isEN = require('./string.js').string_isEN;
 
 
 function __getElement (opts) {
-    const _parent = opts.parent;
-    const _class = opts.class;
-    let _style = opts.style;
+    var _parent = opts.parent;
+    var _class = opts.class;
+    var _style = opts.style;
 
 
-    let element = document.createElement('span');
+    var element = document.createElement('span');
     _parent.appendChild(element);
 
     _class && (element.className = _class);
@@ -56,9 +56,9 @@ function __textBreak (text, suffix) {
  * @return {[type]}          [description]
  */
 function __checkWordByChar (el, anyStr, maxWidth) {
-    let i = 0;
-    let len = anyStr.length;
-    let lastText;
+    var i = 0;
+    var len = anyStr.length;
+    var lastText;
 
     do {
         lastText = el.textContent;
@@ -80,13 +80,13 @@ function __checkWordByChar (el, anyStr, maxWidth) {
  * @return {[type]}             [description]
  */
 function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix, isMaxRow) {
-    let word = words[index];
-    let isOnlyEN = string_isEN(word);
+    var word = words[index];
+    var isOnlyEN = string_isEN(word);
 
     el.textContent = words.slice(0, index).join(splitSymbol);
 
-    let i;
-    let finalText;
+    var i;
+    var finalText;
 
     // for splitSymbol
     if (index != 0) {
@@ -121,8 +121,8 @@ function __appendByChar (el, words, index, maxWidth, splitSymbol, suffix, isMaxR
 }
 
 module.exports = {
-    __getElement,
-    __textBreak,
-    __checkWordByChar,
-    __appendByChar
+    __getElement: __getElement,
+    __textBreak: __textBreak,
+    __checkWordByChar: __checkWordByChar,
+    __appendByChar: __appendByChar
 }

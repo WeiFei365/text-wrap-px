@@ -1,8 +1,8 @@
 'use strict'
 
 function array_scale(array, index) {
-    let _array = [].concat(array);
-    let _index = index;
+    var _array = [].concat(array);
+    var _index = index;
     if (_array.length == 0) { return; }
 
     if (_index < 0) {
@@ -16,5 +16,5 @@ function array_scale(array, index) {
 }
 
 module.exports = {
-    array_scale
+    array_scale: array_scale
 };

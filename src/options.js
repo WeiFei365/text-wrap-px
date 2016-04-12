@@ -17,7 +17,7 @@ var merge = lodash.merge;
 var __getElement = require('./utils.js').__getElement;
 
 
-const DEFAULT_STYLE = {
+var DEFAULT_STYLE = {
     'display': 'inline-block',
     'position': 'absolute',
     'margin-top': '-99999px',
@@ -25,7 +25,7 @@ const DEFAULT_STYLE = {
 };
 
 function __options (options) {
-    let _opts = options && isPlainObject(options) ? merge({}, options) : {};
+    var _opts = options && isPlainObject(options) ? merge({}, options) : {};
 
     // 一行最大宽度（像素），支持多行定义，不做脏检查
     if (!isArray(_opts.maxWidth)) {

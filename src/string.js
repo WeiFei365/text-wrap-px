@@ -5,5 +5,5 @@ function string_isEN (text) {
 }
 
 module.exports = {
-    string_isEN
+    string_isEN: string_isEN
 };
