@@ -9,6 +9,7 @@ npm-debug.log*
 test/
 examples/
 docs/
+dist/
 index.html
 
 
