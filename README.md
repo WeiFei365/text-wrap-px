@@ -162,7 +162,7 @@ npm start
 然后，打开浏览器，地址栏输入 [http://localhost:8080/](http://localhost:8080/) 试用、查看；
 
 
-### 二、点击访问我的 Github Page 开始在线试用
+### 二、点击[访问我的 Github Page 开始在线试用](http://weifei365.github.io/text-wrap-px/)
 
 
 ## 建议 & API 扩展
