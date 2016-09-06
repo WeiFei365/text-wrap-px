@@ -1,10 +1,9 @@
-# text-wrap-px
+# Text Wrap Pixels(text-wrap-px)
 
 在网页中，一段文本实现自动换行、截断，只需要简单的 CSS 便可实现；但是，如果 CSS “失灵了”，比如：[SVG](https://www.w3.org/TR/SVGTiny12/expanded-toc.html) 中的 [text](https://www.w3.org/TR/SVGTiny12/text.html#TextElement) 标签不会自动换行、使用的第三方库如 [ECharts](http://echarts.baidu.com/) 中对坐标轴的刻度标签手动换行时到底该显示多少个字符？这些情况怎么来处理？
 
 **TextWrapPX** 可以帮助你方便的确定一段文本应有的行数及处理截断等问题；**TextWrapPX** 使用原生的 DOM(span) 标签，支持标准 CSS 样式、className 的配置，实现与网页中完全一样的定义、显示。
 
-**快速导航：[CHANGELO](CHANGELOG.MD)、**
 
 
 ## 安装 & 使用
@@ -140,11 +139,30 @@ text.split(splitSymbol);
 * 参数 *options.maxWidth* 支持数组类型，因此可以制作瀑布文本了；并且，当文本倾斜时，每一行的宽度可能是不同的；
 
 
-## Futures
+## Demo Page
 
-1. 增加使用示例；
-2. 增加 Demo 在线测试页面；
-3. 移除 *jquery* 的依赖；
+### 一、Github clone
+
+```
+git clone https://github.com/WeiFei365/text-wrap-px.git
+```
+
+```
+cd text-wrap-px
+```
+
+```
+npm install
+```
+
+```
+npm start
+```
+
+然后，打开浏览器，地址栏输入 [http://localhost:8080/](http://localhost:8080/) 试用、查看；
+
+
+### 二、点击访问我的 Github Page 开始在线试用
 
 
 ## 建议 & API 扩展

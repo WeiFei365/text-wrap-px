@@ -1,0 +1,16 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# dev-env
+.DS_Store
+test/
+examples/
+docs/
+index.html
+
+
+# Dependency directory
+node_modules/

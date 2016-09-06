@@ -1,4 +1,20 @@
+# Dependency directory
 node_modules/
-dest/
+
+
+# Optional npm cache directory
+.npm
+
+
+# dev-env
 .DS_Store
-npm-debug.log
+
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/
