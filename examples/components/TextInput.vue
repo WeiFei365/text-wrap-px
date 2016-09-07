@@ -8,13 +8,13 @@
                 <button v-on:click="defaultText('cn')" type="button" class="btn btn-default">中文</button>
             </div>
             <div class="btn-group">
-                <button v-on:click="defaultText('en_cn')" type="button" class="btn btn-default">中英文（常用）</button>
+                <button v-on:click="defaultText('en_cn')" type="button" class="btn btn-default">中文 & EN（Common）</button>
             </div>
             <div class="btn-group">
-                <button v-on:click="defaultText('en_cn_stand')" type="button" class="btn btn-default">中英文（标准）</button>
+                <button v-on:click="defaultText('en_cn_stand')" type="button" class="btn btn-default">中文 & EN（Standard）</button>
             </div>
         </div>
-        <textarea v-model="text" v-on:keyup="updateText" class="text-wrap-px-input form-control" rows="5" placeholder="点击上面按钮或输入一段文本"></textarea>
+        <textarea v-model="text" v-on:keyup="updateText" class="text-wrap-px-input form-control" rows="5" placeholder="press the button above OR enter a text"></textarea>
     </div>
 </template>
 

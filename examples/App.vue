@@ -1,7 +1,18 @@
 <template>
     <div id="app" class="container">
         <div class="page-header">
-            <h2>Text Wrap Pixels</h2>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Text Wrap Pixels</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://weifei365.gitbooks.io/text-wrap-px/content/">Documents</a></li>
+                        <li><a href="https://github.com/WeiFei365/text-wrap-px">Github</a></li>
+                        <li><a href="https://www.npmjs.com/package/text-wrap-px">NPM</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
         <div class="row">
             <div class="text-wrap-px-options col-md-5">
@@ -32,8 +43,8 @@ export default {
     data() {
         return {
             options: {
-                maxWidth: [200],
-                maxRow: 99999,
+                maxWidth: [200, 300, 400, 500],
+                maxRow: 9,
                 splitSymbol: ' ',
                 suffix: '...',
                 class: 'test1 test2',
@@ -41,7 +52,7 @@ export default {
                     'fontSize': '20px',
                     'white-space': 'nowrap'
                 },
-                parent: true
+                parent: null
             },
             text: ''
         };
@@ -64,3 +75,16 @@ export default {
 </script>
 
 <style src="./style/bootstrap.min.css"></style>
+<style media="screen">
+    .navbar {
+        background-color: white;
+        border-width: 0;
+    }
+    .navbar-brand {
+        font-size: 30px;
+        font-weight: 400;
+    }
+    .navbar-nav {
+        font-size: 18px;
+    }
+</style>
