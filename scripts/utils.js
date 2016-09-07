@@ -90,10 +90,11 @@ export function appendByChar({ element, words, index, maxWidth, splitSymbol, suf
     if (index != 0) {
         [lastIndex] = testByChar(element, splitSymbol, maxWidth);
         if (element.$width() >= maxWidth) {
+            const wordsLength = words.length;
             words.splice(0, index);
             // 因为这次拼接的是 splitSymbol，所以如果是最后一行时才追加 suffix，
             // 否则这行的显示文本是不需要带上最后这个 splitSymbol 的
-            return isMaxRow && (index + 1) <= words.length ? textBreak(lastContent, suffix) : lastContent;
+            return isMaxRow && (index + 1) <= wordsLength ? textBreak(lastContent, suffix) : lastContent;
         }
     }
 
