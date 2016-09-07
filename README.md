@@ -5,6 +5,9 @@
 **TextWrapPX** 可以帮助你方便的确定一段文本应有的行数及处理截断等问题；**TextWrapPX** 使用原生的 DOM(span) 标签，支持标准 CSS 样式、className 的配置，实现与网页中完全一样的定义、显示。
 
 
+* [Demo Page online](http://weifei365.github.io/text-wrap-px/)
+* [API Documents(coding...)](https://weifei365.gitbooks.io/text-wrap-px/content/)
+
 
 ## 安装 & 使用
 
