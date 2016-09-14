@@ -5,10 +5,45 @@
     <title>Text Wrap Pixels: demo page</title>
     <!-- <link rel="stylesheet" href="src/css/main.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style media="screen">
+        app {
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            text-align: center;
+        }
+        app > div {
+            width: 30px;
+            height: 30px;
+            background-color: #67CF22;
+            display: inline-block;
 
+            animation: wrappx 1.4s infinite ease-in-out;
+            animation-fill-mode: both;
+        }
+        app .c1 {
+            animation-delay: -0.32s;
+        }
+        app .c2 {
+            animation-delay: -0.16s;
+        }
+        @keyframes wrappx {
+            0%, 80%, 100% {
+                transform: scale(0.1);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-    <app></app>
+    <app>
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+    </app>
     <script src="./dist/bundle.js" charset="utf-8"></script>
 </body>
 </html>

@@ -74,7 +74,6 @@ export default {
 
 </script>
 
-<style src="./style/bootstrap.min.css"></style>
 <style media="screen">
     .navbar {
         background-color: white;
