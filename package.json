@@ -1,6 +1,6 @@
 {
   "name": "text-wrap-px",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "文本断行；不同于字符数的断行，可以根据 CSS 样式以像素级别的断行；",
   "main": "build/text-wrap-px.js",
   "scripts": {
