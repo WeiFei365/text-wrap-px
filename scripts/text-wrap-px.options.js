@@ -13,7 +13,8 @@ const wrapOptions = {
         'display': 'inline-block',
         'position': 'absolute',
         'margin-top': '-99999px',
-        'white-space': 'nowrap'
+        'white-space': 'nowrap',
+        'line-height': 'normal'
     },
     parent: null
 };
