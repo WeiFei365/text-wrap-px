@@ -12,7 +12,7 @@ module.exports = {
 
     },
     devtool: "source-map",
-    externals: ['jquery', 'lodash'],
+    externals: ['jquery'],
     module:{
         loaders:[
             {

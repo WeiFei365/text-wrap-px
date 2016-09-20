@@ -1,15 +1,14 @@
-var lodash = require('lodash');
 
-export var isString = lodash.isString;
-export var isNumber = lodash.isNumber;
-export var isArray = lodash.isArray;
-export var isPlainObject = lodash.isPlainObject;
-export var isElement = lodash.isElement;
-export var isFunction = lodash.isFunction;
-export var merge = lodash.merge;
-export var cloneDeep = lodash.cloneDeep;
-export var camelCase = lodash.camelCase;
-export var uniqueId = lodash.uniqueId;
+export var isString = require('lodash/lang/isString.js');
+export var isNumber = require('lodash/lang/isNumber.js');
+export var isArray = require('lodash/lang/isArray.js');
+export var isPlainObject = require('lodash/lang/isPlainObject.js');
+export var isElement = require('lodash/lang/isElement.js');
+export var isFunction = require('lodash/lang/isFunction.js');
+export var merge = require('lodash/object/merge.js');
+export var cloneDeep = require('lodash/lang/cloneDeep.js');
+export var camelCase = require('lodash/string/camelCase.js');
+export var uniqueId = require('lodash/utility/uniqueId.js');
 
 var $ = require('jquery');
 
